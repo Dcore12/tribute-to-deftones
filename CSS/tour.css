@@ -1,0 +1,340 @@
+/* ==========================
+   TOUR PAGE STYLES
+   ========================== */
+
+/* ====== BASE ====== */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800&display=swap');
+
+body {
+  background-color: rgba(0, 0, 0, 0.9);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+}
+h1,
+h2,
+h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px;
+}
+
+a {
+  color: white;
+  transition: transform 0.3s, color 0.3s;
+}
+a:hover {
+  color: #00b2eb;
+}
+.header {
+  text-align: right;
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    rgb(255, 255, 255),
+    rgb(255, 255, 255)
+  );
+  border: solid 1px white;
+  border-radius: 10px;
+}
+.img_logo {
+  width: 320px;
+  /*height: 200px;*/
+  margin-right: 10px;
+}
+
+.nav.nav-pills.flex-column.flex-sm-row {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+.flex-sm-fill.text-sm-center.nav-link {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  color: #000000;
+}
+.flex-sm-fill.text-sm-center.nav-link.active {
+  background-color: rgba(141, 140, 140, 0.9) !important;
+  color: #ffffff;
+}
+.footer {
+  text-align: center;
+}
+.top {
+  --offset: 50px;
+
+  position: sticky;
+  bottom: 20px;
+  margin-right: 10px;
+  place-self: end;
+  margin-top: calc(100vh + var(--offset));
+
+  /* visual styling */
+  text-decoration: none;
+  padding: 10px;
+  font-family: sans-serif;
+  background-color: rgba(255, 0, 0, 0.841);
+  color: #ffffff;
+  border: solid 2px white;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+.top:hover {
+  border: solid 2px rgba(255, 0, 0, 0.552);
+  color: rgb(205, 0, 0);
+  background: #ffffff;
+}
+
+/* Homepage */
+.carousel.slide,
+.main,
+.formulario,
+.footer {
+  border: solid 1px white;
+  border-radius: 10px;
+}
+.footer {
+  color: white;
+  padding: 10px;
+}
+.gif {
+  text-align: center;
+  width: 100%;
+  border: solid 1px white;
+  border-radius: 10px;
+}
+#audio {
+  text-align: center;
+}
+
+.list-group-item {
+  background-color: transparent !important;
+  color: white !important;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.fw-bold {
+  font-weight: normal !important;
+  font-style: italic;
+}
+
+.local {
+  font-weight: normal;
+}
+
+.shows {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+/* ====== BUTTONS ====== */
+.badge.text-bg-dark.rounded-pill {
+  font-size: 18px;
+  border: solid 2px white;
+  background: #cc4040 !important;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.badge.text-bg-dark.rounded-pill a {
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.badge.text-bg-dark.rounded-pill a:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ====== LINE SEPARATOR ====== */
+.linha {
+  position: relative;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.2),
+    #cc4040,
+    rgba(255, 255, 255, 0.2)
+  );
+  margin: 15px 0;
+  border: none;
+  animation: glowLine 3s infinite linear;
+}
+
+@keyframes glowLine {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+/* ====== ANIMATION: CONCERT ENTRY ====== */
+@keyframes showConcert {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.shows li {
+  animation: showConcert 0.8s ease forwards;
+  opacity: 0;
+}
+
+.shows li:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.shows li:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.shows li:nth-child(3) {
+  animation-delay: 0.5s;
+}
+.shows li:nth-child(4) {
+  animation-delay: 0.7s;
+}
+.shows li:nth-child(5) {
+  animation-delay: 0.9s;
+}
+.shows li:nth-child(6) {
+  animation-delay: 1.1s;
+}
+
+/* ====== HOVER EFFECTS ====== */
+.list-group-item:hover {
+  background-color: rgba(255, 255, 255, 0.142) !important;
+  transform: scale(1.02) !important;
+  border-radius: 8px;
+}
+
+/* Hover base */
+.badge.text-bg-dark.rounded-pill:hover {
+  background: #cc4040 !important;
+  border-color: #cc4040;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(204, 64, 64, 0.8);
+}
+
+.badge.text-bg-dark.rounded-pill:hover a {
+  color: #fff;
+}
+
+/* 🔥 Efeito pulsante TICKETS */
+.badge.text-bg-dark.rounded-pill.tickets::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50px;
+  box-shadow: 0 0 20px 4px rgba(255, 64, 64, 0.8);
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.4s;
+  transform: scale(0.8);
+}
+
+.badge.text-bg-dark.rounded-pill.tickets:active::after {
+  opacity: 1;
+  transform: scale(1.4);
+  animation: pulseTicket 0.5s ease-out !important;
+}
+
+@keyframes pulseTicket {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+}
+
+/* 💀 SOLD OUT pulsante */
+.badge.text-bg-dark.rounded-pill.soldout {
+  background-color: #550000 !important;
+  animation: pulseSoldOut 1.5s infinite alternate;
+}
+
+@keyframes pulseSoldOut {
+  from {
+    box-shadow: 0 0 10px #cc4040, 0 0 20px #ff0000;
+  }
+  to {
+    box-shadow: 0 0 25px #ff0000, 0 0 40px #ff3b3b;
+  }
+}
+
+.badge.text-bg-dark.rounded-pill.soldout a {
+  color: #ffcccc;
+  pointer-events: none;
+}
+
+/* ====== TITLE EFFECT ====== */
+h1 {
+  color: #fff;
+  text-align: left;
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px #cc4040, 0 0 20px #cc4040;
+  animation: flicker 2.5s infinite alternate;
+}
+
+@keyframes flicker {
+  from {
+    opacity: 0.8;
+    text-shadow: 0 0 5px #cc4040;
+  }
+  to {
+    opacity: 1;
+    text-shadow: 0 0 20px #ff4d4d;
+  }
+}
+
+/* ====== AUDIO PLAYER ====== */
+.nu-btn {
+  background: #00b2eb;
+  color: #fff;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  padding: 0.6rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+.nu-btn:hover {
+  background: rgb(162, 222, 248);
+  transform: scale(1.05);
+}
+
+/* ====== BACK TO TOP BUTTON ====== */
+.top {
+  position: sticky;
+  bottom: 20px;
+  right: 20px;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-family: sans-serif;
+  background-color: rgba(255, 0, 0, 0.841);
+  color: #ffffff;
+  border: solid 2px white;
+  border-radius: 10px;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.top:hover {
+  border: solid 2px rgba(255, 0, 0, 0.552);
+  color: rgb(205, 0, 0);
+  background: #ffffff;
+  transform: scale(1.05);
+}

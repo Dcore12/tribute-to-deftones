@@ -1,0 +1,219 @@
+/* ====== BASE ====== */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800&display=swap');
+
+body {
+  background-color: rgba(0, 0, 0, 0.9);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+}
+h1,
+h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px;
+}
+h2 {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+a {
+  color: white;
+  transition: transform 0.3s, color 0.3s;
+}
+a:hover {
+  color: #00b2eb;
+}
+.header {
+  text-align: right;
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    rgb(255, 255, 255),
+    rgb(255, 255, 255)
+  );
+  border: solid 1px white;
+  border-radius: 10px;
+}
+.img_logo {
+  width: 320px;
+  /*height: 200px;*/
+  margin-right: 10px;
+}
+
+.nav.nav-pills.flex-column.flex-sm-row {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+.flex-sm-fill.text-sm-center.nav-link {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  color: #000000;
+}
+.flex-sm-fill.text-sm-center.nav-link.active {
+  background-color: rgba(141, 140, 140, 0.9) !important;
+  color: #ffffff;
+}
+.footer {
+  text-align: center;
+}
+.top {
+  --offset: 50px;
+
+  position: sticky;
+  bottom: 20px;
+  margin-right: 10px;
+  place-self: end;
+  margin-top: calc(100vh + var(--offset));
+
+  /* visual styling */
+  text-decoration: none;
+  padding: 10px;
+  font-family: sans-serif;
+  background-color: rgba(255, 0, 0, 0.841);
+  color: #ffffff;
+  border: solid 2px white;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+.top:hover {
+  border: solid 2px rgba(255, 0, 0, 0.552);
+  color: rgb(205, 0, 0);
+  background: #ffffff;
+}
+
+/* Homepage */
+.carousel.slide,
+.main,
+.formulario,
+.footer {
+  border: solid 1px white;
+  border-radius: 10px;
+}
+.footer {
+  color: white;
+  padding: 10px;
+}
+#audio {
+  text-align: center;
+}
+.nu-btn {
+  background: #00b2eb;
+  color: #fff;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  padding: 0.6rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+.nu-btn:hover {
+  background: rgb(162, 222, 248);
+  transform: scale(1.05);
+}
+
+/* Container */
+.form-wrapper {
+  background: rgba(40, 40, 40, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+}
+
+/* Inputs */
+.dark-input {
+  background-color: rgba(255, 255, 255, 0.499);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.dark-input:focus {
+  background-color: rgba(255, 255, 255, 0.749);
+  border-color: #00b2eb;
+  box-shadow: 0 0 8px #00b2eb !important;
+  color: #fff;
+}
+
+.dark-input.error {
+  border-color: #ff4c4c;
+  animation: shake 0.2s linear 2;
+}
+.img-fluid.rounded.shadow-lg {
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.638) !important;
+}
+/* Button */
+.send-btn {
+  background: linear-gradient(90deg, #00b2eb, #0094d8);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+}
+
+.send-btn:hover {
+  background: linear-gradient(90deg, #fff, #00b2eb);
+  color: #000;
+  transform: scale(1.03);
+}
+/* Footer */
+.footer p i {
+  font-size: clamp(20px, 4vw, 28px);
+  transition: transform 0.3s, color 0.3s;
+}
+.footer p i:hover {
+  transform: scale(1.2);
+  color: #00b2eb;
+}
+
+/* Mobile spacing */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  .header {
+    text-align: center;
+  }
+
+  .nav.nav-pills {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+/* Animations */
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-4px);
+  }
+  75% {
+    transform: translateX(4px);
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .form-wrapper {
+    padding: 1.5rem !important;
+  }
+}

@@ -1,0 +1,439 @@
+/* ========== sobre.css (substituir todo o ficheiro) ========== */
+
+body {
+  background-color: rgba(0, 0, 0, 0.9);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+}
+h1,
+h2,
+h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px;
+}
+
+a {
+  color: white;
+  transition: transform 0.3s, color 0.3s;
+}
+a:hover {
+  color: #00b2eb;
+}
+.nav.nav-pills.flex-column.flex-sm-row {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+.flex-sm-fill.text-sm-center.nav-link {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  color: #000000;
+}
+.flex-sm-fill.text-sm-center.nav-link.active {
+  background-color: rgba(141, 140, 140, 0.9) !important;
+  color: #ffffff;
+}
+.footer {
+  text-align: center;
+}
+.top {
+  --offset: 50px;
+
+  position: sticky;
+  bottom: 20px;
+  margin-right: 10px;
+  place-self: end;
+  margin-top: calc(100vh + var(--offset));
+
+  /* visual styling */
+  text-decoration: none;
+  padding: 10px;
+  font-family: sans-serif;
+  background-color: rgba(255, 0, 0, 0.841);
+  color: #ffffff;
+  border: solid 2px white;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+.top:hover {
+  border: solid 2px rgba(255, 0, 0, 0.552);
+  color: rgb(205, 0, 0);
+  background: #ffffff;
+}
+/* IMPORTANTE: estes estilos são específicos da página About.
+   Mantêm a coerência visual com index.css, e sobrepõem (apenas aqui)
+   as regras que estavam a provocar borders/overlap. */
+
+/* ----------------- Reset / Overrides locais ----------------- */
+/* Remove borders automáticas herdadas do style.css nesta página */
+.carousel.slide,
+.main,
+.formulario,
+.footer {
+  border: solid 1px white;
+  border-radius: 10px;
+  color: white;
+  padding: 10px;
+}
+
+/* Fontes: assume que já importaste as Google Fonts no head do HTML.
+   Caso não tenhas, adiciona o <link> no head. */
+
+/* ----------------- Hero & Parallax ----------------- */
+.hero {
+  position: relative;
+  height: 100vh;
+  background: url('../Imagens/About/deftones-JimmyFontaine.webp') center/cover
+    no-repeat;
+  background-attachment: fixed; /* cuidado em mobile: normalmente ignora */
+}
+.hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+.hero .content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+}
+/* Remove background-attachment: fixed em mobile */
+@media (max-width: 768px) {
+  .hero,
+  .parallax {
+    background-attachment: scroll;
+  }
+}
+.parallax {
+  position: relative;
+  height: 60vh;
+  background: url('../Imagens/About/deftones-ohms.jpg') center/cover no-repeat;
+  background-attachment: fixed;
+}
+.parallax .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+#audio {
+  text-align: center;
+}
+.nu-btn {
+  background: #00b2eb; /* vermelho Deftones vibe */
+  color: #fff;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  padding: 0.6rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+.nu-btn:hover {
+  background: rgb(162, 222, 248);
+  transform: scale(1.05);
+}
+
+/* ----------------- Timeline alternada (variáveis para afinar) ----------------- */
+:root {
+  --timeline-gap: 40px;
+  --timeline-line-w: 4px;
+  --timeline-dot-size: 18px;
+  --timeline-dot-offset: calc(
+    var(--timeline-dot-size) / 2
+  ); /* ✅ Cálculo automático */
+}
+
+.timeline {
+  position: relative;
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+}
+
+/* Linha central - garantindo posicionamento exato */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: var(--timeline-line-w);
+  background: #dc3545;
+  z-index: 1;
+}
+
+/* items */
+.timeline-item {
+  position: relative;
+  width: calc(50% - var(--timeline-gap));
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+  min-height: 80px;
+}
+
+/* content box */
+.timeline-item .content {
+  background: #0f0f10;
+  color: #f0f0f0;
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(255, 33, 33, 0.837);
+  position: relative;
+  z-index: 3;
+}
+
+/* esquerda / direita */
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+}
+.timeline-item.right {
+  left: 50%;
+  text-align: left;
+}
+
+/* Ajuste fino dos pontos */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  top: 24px;
+  width: var(--timeline-dot-size);
+  height: var(--timeline-dot-size);
+  border-radius: 50%;
+  background: #dc3545;
+  border: 3px solid #fff;
+  z-index: 4;
+}
+
+/* Alinhamento matemático preciso */
+.timeline-item.left::before {
+  left: 100%;
+  margin-left: calc(var(--timeline-gap) - var(--timeline-dot-size) / 2);
+}
+
+.timeline-item.right::before {
+  left: calc(-1 * var(--timeline-dot-size) / 2);
+}
+
+@media (max-width: 768px) {
+  .timeline {
+    padding-left: 40px; /* espaço extra para texto */
+    padding-right: 8px;
+  }
+
+  .timeline::before {
+    left: 20px; /* linha vermelha */
+    transform: none;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 3rem;
+    padding-right: 1rem;
+    text-align: left !important;
+    left: 0 !important;
+  }
+
+  .timeline-item.left::before,
+  .timeline-item.right::before {
+    /* centro exato da bolinha alinhado com o centro da linha */
+    left: calc(
+      20px - ((var(--timeline-dot-size) + 24px) / 2) +
+        (var(--timeline-line-w) / 2)
+    );
+    right: auto;
+    transform: none;
+    margin-left: 0;
+  }
+}
+
+/* ----------------- Members Gallery (flip cards) ----------------- */
+/* Usamos grid para que os cartões ocupem toda a largura disponível */
+/* ----------------- Members Gallery (flip cards) ----------------- */
+/* ----------------- Members Gallery (flip cards) ----------------- */
+.members-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 28px;
+  align-items: stretch;
+  margin: 36px 0 64px;
+  padding: 0 8px;
+}
+
+.flip-card {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  perspective: 1200px;
+  position: relative;
+}
+
+.flip-card-inner {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.75s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner,
+.flip-card.is-flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Frente */
+.flip-card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Verso */
+.flip-card-back {
+  background: linear-gradient(135deg, #2b2b2b, #111);
+  color: #fff;
+  display: flex;
+  flex-direction: column; /* <-- coluna */
+  justify-content: center; /* centra vertical */
+  align-items: center; /* centra horizontal */
+  padding: 20px;
+  text-align: center;
+  transform: rotateY(180deg);
+}
+
+.flip-card-back h5 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 10px; /* espaço entre h5 e p */
+  color: #fad092;
+}
+
+.flip-card-back p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.flip-card-front,
+.flip-card-back {
+  box-shadow: 0 8px 24px rgba(191, 191, 191, 0.5);
+}
+
+/* Responsivo */
+@media (max-width: 1200px) {
+  .members-gallery {
+    grid-template-columns: repeat(3, 1fr); /* portáteis médios */
+  }
+}
+
+@media (max-width: 992px) {
+  .members-gallery {
+    grid-template-columns: repeat(2, 1fr); /* tablets */
+  }
+}
+
+@media (max-width: 576px) {
+  .members-gallery {
+    grid-template-columns: 1fr; /* telemóveis */
+  }
+}
+/* Hover só funciona em dispositivos com suporte a hover */
+@media (hover: hover) {
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+}
+
+/* Clique no mobile controlado via JS */
+.flip-card.is-flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Toque (touch devices): adiciona classe .is-flipped via JS.
+   Em muitos dispositivos mobile :hover não funciona, por isso usaremos o click. */
+
+/* ----------------- Garantir espaço abaixo para evitar overlap com footer ----------------- */
+.members-section,
+#members {
+  padding-bottom: 80px;
+}
+
+/* ----------------- pequenos ajustes / coerência com index ----------------- */
+/* Buttons "nu-metal" */
+.nu-btn {
+  background: #00b2eb;
+  color: #fff;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  padding: 0.6rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+.nu-btn:hover {
+  background: rgb(162, 222, 248);
+  transform: scale(1.05);
+}
+
+/* Headings coerentes */
+h2,
+.members-section h2,
+.timeline h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+/* Evitar overflow estranho */
+.flip-card,
+.flip-card-front,
+.flip-card-back {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* ----------------- AOS / animações leve ----------------- */
+[data-aos] {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+[data-aos].aos-animate {
+  opacity: 1;
+  transform: none;
+}
+
+/* ----------------- Ajustes responsivos gerais ----------------- */
+@media (max-width: 768px) {
+  .hero {
+    background-attachment: scroll;
+  } /* fixed dá problemas em mobile */
+  .parallax {
+    background-attachment: scroll;
+  }
+  .timeline {
+    padding-left: 12px;
+    padding-right: 8px;
+  }
+  .flip-card {
+    aspect-ratio: 4 / 5;
+  }
+}
